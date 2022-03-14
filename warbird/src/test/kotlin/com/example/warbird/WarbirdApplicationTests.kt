@@ -1,4 +1,4 @@
-package com.uplink.warbird
+package com.example.warbird
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

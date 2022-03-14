@@ -1,4 +1,4 @@
-package com.uplink.warbird
+package com.example.warbird
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
