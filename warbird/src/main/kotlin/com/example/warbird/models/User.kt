@@ -13,6 +13,9 @@ data class User(
     val id: Long,
     val first_name: String,
     val last_name: String,
-
+    val password: String,
+    val username: String,
+    val email: String,
+    val profile_picture: String
 ) {
 }
