@@ -1,4 +1,4 @@
-package com.example.warbird.config
+package com.uplink.warbird.config
 
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity

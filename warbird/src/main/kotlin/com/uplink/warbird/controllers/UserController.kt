@@ -1,6 +1,6 @@
-package com.example.warbird.controllers
+package com.uplink.warbird.controllers
 
-import com.example.warbird.services.UserService
+import com.uplink.warbird.services.UserService
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 

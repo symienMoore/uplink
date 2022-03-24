@@ -1,4 +1,4 @@
-package com.example.warbird.models
+package com.uplink.warbird.models
 
 import javax.annotation.processing.Generated
 import javax.persistence.Entity

@@ -1,4 +1,4 @@
-package com.example.warbird.kafkaConfig
+package com.uplink.warbird.kafkaConfig
 
 import org.apache.kafka.clients.admin.NewTopic
 import org.springframework.context.annotation.Bean
