@@ -8,7 +8,7 @@ class KafkaProducerConfig {
 
     @Value("spring.kafka.bootstrap-servers")
     val bootStrapServer: String? = null;
-
+    
 
 
 }

@@ -9,8 +9,8 @@ import org.springframework.kafka.config.TopicBuilder
 class KafkaTopicConfig {
 
     @Bean
-    public fun createTopic(): NewTopic{
-        return TopicBuilder.name("vulcan")
+    public fun createTopic(topic: String): NewTopic{
+        return TopicBuilder.name(topic)
             .build()
     }
 }
