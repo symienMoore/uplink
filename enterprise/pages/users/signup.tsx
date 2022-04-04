@@ -1,3 +1,4 @@
+
 import styles from './styles/signup.module.css';
 
 const Signup = () => {
@@ -21,6 +22,7 @@ const Signup = () => {
        </form>
    </div>
   )
+
 }
 
 export default Signup
