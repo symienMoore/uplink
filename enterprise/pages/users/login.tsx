@@ -1,11 +1,16 @@
 
+import React from 'react'
 
 const Login = () => {
-    return (
-        <div>
+  return (
+    <div>
+        <form>
+            <input type="text" />
+            <input type="text" />
+        </form>
+    </div>
+  )
 
-        </div>
-    )
 }
 
 export default Login
