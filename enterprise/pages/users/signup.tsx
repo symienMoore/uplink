@@ -2,6 +2,12 @@
 import styles from './styles/signup.module.css';
 
 const Signup = () => {
+    const test = () => {
+        console.log("test")
+        fetch('http://localhost:3000/api/users/all')
+        .then(response => response.json())
+        .then(data => console.log(data));
+    }
   return (
    <div>
        <form className="w-3/6 px-4 py-3 border-2 border-slate-300 rounded-md">
@@ -17,7 +23,7 @@ const Signup = () => {
             <input type="password" required className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm sm:text-sm outline-0" placeholder="confirm password"/>
             <div className={styles.buttonContainer}>
                 <button className="bg-green-400 text-white p-2">register</button>
-                <button>Login</button>
+                <button onClick={test}>Login</button>
             </div>
        </form>
    </div>

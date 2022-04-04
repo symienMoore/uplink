@@ -6,7 +6,7 @@ import helmet from 'helmet';
 import StatusCodes from 'http-status-codes';
 import { Server as SocketIo } from 'socket.io';
 import express, { NextFunction, Request, Response } from 'express';
-
+import cors from 'cors'
 import 'express-async-errors';
 
 import BaseRouter from './routes/api';
@@ -15,7 +15,7 @@ import { cookieProps } from '@routes/auth-router';
 import { CustomError } from '@shared/errors';
 
 const app = express();
-
+app.use(cors())
 
 
 /************************************************************************************
