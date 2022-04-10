@@ -15,7 +15,9 @@ import { cookieProps } from '@routes/auth-router';
 import { CustomError } from '@shared/errors';
 
 const app = express();
-app.use(cors())
+app.use(cors({
+    origin: "http://localhost:3001"
+}));
 
 
 /************************************************************************************

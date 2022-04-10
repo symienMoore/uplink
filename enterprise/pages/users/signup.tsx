@@ -2,11 +2,19 @@
 import styles from './styles/signup.module.css';
 
 const Signup = () => {
+    // let cookie: any
+    // cookie = cookie.get("ExpressGeneratorTs")
     const test = () => {
-        console.log("test")
-        fetch('http://localhost:3000/api/users/all')
-        .then(response => response.json())
-        .then(data => console.log(data));
+        console.log("made it here")
+    //     fetch('http://localhost:3000/api/users/all', {
+    //         headers: {
+    //             'Content-Type': 'text/plain',
+    //             'X-My-Custom-Header': 'value-v',
+    //             'Authorization': 'ExpressGeneratorTs' + document.cookie,
+    //           }
+    //       })
+    //     .then(response => response.json())
+    //     .then(data => console.log(data));
     }
   return (
    <div>
@@ -28,7 +36,6 @@ const Signup = () => {
        </form>
    </div>
   )
-
 }
 
 export default Signup
