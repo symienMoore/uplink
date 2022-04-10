@@ -1,10 +1,11 @@
-
+import cookie from 'js-cookie'
 import styles from './styles/signup.module.css';
 
 const Signup = () => {
     // let cookie: any
     // cookie = cookie.get("ExpressGeneratorTs")
     const test = () => {
+        cookie.set('test-cookie', 'my test cookie')
         console.log("made it here")
     //     fetch('http://localhost:3000/api/users/all', {
     //         headers: {
