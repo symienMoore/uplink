@@ -14,6 +14,7 @@ import { UnauthorizedError } from '@shared/errors';
  * @returns 
  */
 async function login(email: string, password: string): Promise<string> {
+    console.log("its true, the force, the jedi, all of it...")
     // Fetch user
     const user = await userRepo.getOne(email);
     if (!user) {
