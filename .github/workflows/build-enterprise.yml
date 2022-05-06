@@ -2,22 +2,21 @@ name: publish
 
 on:
   push:
-    paths:
-      - "enterprise/**"
-    branches:
-      - dev
+    branches: [dev]
+  pull_request:
+    branches: [dev]
 
-jobs:
+jobs: 
   build:
     name: Cloud Run Deployment
     runs-on: ubuntu-latest
     steps:
 
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@main
 
       - name: Setup GCP Service Account
-        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        uses: google-github-actions/setup-gcloud@v0
         with:
           version: 'latest'
           service_account_email: ${{ secrets.GCP_SA_EMAIL }}
@@ -38,9 +37,9 @@ jobs:
 
       - name: Deploy
         run: |
-          gcloud run deploy helloworld \
+          gcloud run deploy \
           --region us-east4-a \
           --image gcr.io/${{ secrets.GCLOUD_PROJECT_ID }}/enterprise-api \
           --platform managed \
           --allow-unauthenticated \
-          --project ${{ secrets.GCLOUD_PROJECT_ID }} 
+          --project ${{ secrets.GCLOUD_PROJECT_ID }}
