@@ -1,10 +1,6 @@
 name: publish
 
-on:
-  push:
-    paths:
-      - "enterprise/**"
-    branches: [ dev ]
+on: [push]
 
 jobs:
   build:
