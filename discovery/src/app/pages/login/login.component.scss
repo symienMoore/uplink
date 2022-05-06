@@ -1,0 +1,22 @@
+.form {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    height: 15rem;
+    width: 60rem;
+    margin: 10rem auto;
+    padding: 30px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    label {
+        margin-top: .7rem;
+    }
+    input {
+        border: 1px solid lightgrey;
+        padding: .3rem;
+    
+    }
+    .btn {
+        margin-top: .5rem;
+    }
+}
