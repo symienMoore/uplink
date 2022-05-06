@@ -2,9 +2,9 @@ name: publish
 
 on:
   push:
-    paths:
-      - "enterprise/**"
-    branches: [ dev ]
+    branches: [dev]
+  pull_request:
+    branches: [dev]
 
 jobs: 
   build:
@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: Setup GCP Service Account
-        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+#        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
           version: 'latest'
           service_account_email: ${{ secrets.GCP_SA_EMAIL }}
