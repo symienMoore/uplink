@@ -4,8 +4,7 @@ on:
   push:
     paths:
       - "enterprise/**"
-    branches:
-      - dev
+    branches: [ dev ]
 
 jobs: 
   build:
