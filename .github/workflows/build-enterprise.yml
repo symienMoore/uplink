@@ -43,4 +43,4 @@ jobs:
           --image gcr.io/${{ secrets.GCLOUD_PROJECT_ID }}/enterprise-api \
           --platform managed \
           --allow-unauthenticated \
-          --project ${{ secrets.GCLOUD_PROJECT_ID }} 
+          --project ${{ secrets.GCLOUD_PROJECT_ID }}
