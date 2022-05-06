@@ -38,7 +38,7 @@ jobs:
 
       - name: Deploy
         run: |
-          gcloud run deploy helloworld \
+          gcloud run deploy \
           --region us-east4-a \
           --image gcr.io/${{ secrets.GCLOUD_PROJECT_ID }}/enterprise-api \
           --platform managed \
