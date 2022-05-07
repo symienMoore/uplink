@@ -39,7 +39,7 @@ class UserController(@Autowired private val userService: UserService) {
         val cookie = Cookie("jwt", jwt)
         cookie.isHttpOnly = true
         response.addCookie(cookie)
-        return ResponseEntity.ok("Successfully logged in!")
+        return ResponseEntity.ok(cookie)
     }
 
     @PostMapping("/signup")
