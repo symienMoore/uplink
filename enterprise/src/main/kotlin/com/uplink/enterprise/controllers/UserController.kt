@@ -20,7 +20,7 @@ class UserController(@Autowired private val userService: UserService) {
     fun doUserLogin(@RequestBody userBody: LoginDTO): ResponseEntity<Any> {
         var user: User? = this.userService.findByEmail(userBody.email)
             ?: return ResponseEntity.badRequest().body("Could not find user with that email, please try again.")
-        return ResponseEntity(user, HttpStatus.CREATED)
+        return ResponseEntity.ok(user)
     }
 
     @PostMapping("/signup")

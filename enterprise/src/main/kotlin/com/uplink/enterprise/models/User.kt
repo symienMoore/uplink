@@ -13,7 +13,7 @@ import java.time.LocalDateTime
 class User {
 
     @Id
-    val id: ObjectId = ObjectId.get()
+    var id: ObjectId = ObjectId.get()
     @Field
     var name: String = ""
     @Field
@@ -24,14 +24,14 @@ class User {
     var password: String = ""
     get() = field
     set(value) {
-        val passwordEncoder = BCryptPasswordEncoder()
+        var passwordEncoder = BCryptPasswordEncoder()
         field = passwordEncoder.encode(value)
     }
 
     @Field
-    val createdDate: LocalDateTime = LocalDateTime.now()
+    var createdDate: LocalDateTime = LocalDateTime.now()
 
     @Field
-    val modifiedDate: LocalDateTime = LocalDateTime.now()
+    var modifiedDate: LocalDateTime = LocalDateTime.now()
 
 }
