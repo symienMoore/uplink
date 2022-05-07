@@ -2,6 +2,8 @@ name: publish
 
 on:
   push:
+    paths:
+      -"enterprise/**"
     branches: [dev]
   pull_request:
     branches: [dev]
