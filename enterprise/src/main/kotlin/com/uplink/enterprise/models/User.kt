@@ -34,4 +34,7 @@ class User {
     @Field
     var modifiedDate: LocalDateTime = LocalDateTime.now()
 
+    fun comparePassword(password: String): Boolean {
+       return BCryptPasswordEncoder().matches(password, this.password)
+    }
 }
