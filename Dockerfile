@@ -1,5 +1,16 @@
-FROM openjdk:latest
-WORKDIR /enterprise
+#FROM maven:3.6.3-jdk-8
+#WORKDIR /enterprise/
+#COPY ./ ./
+#RUN mvn clean package
+#CMD ["java", "-jar", "Uplink-build.jar"]
+
+FROM openjdk:11.0.10
 EXPOSE 8080
-ADD target/Uplink-build.jar Uplink-build.jar
-ENTRYPOINT ["java", "-jar", "Uplink-build.jar"]
+RUN apt-get update -y && \
+    apt-get upgrade -y && \
+    apt-get install maven -y
+WORKDIR /enterprise
+COPY ./ ./
+RUN mvn ./pom.xml clean package
+ADD ./target/uplink-build.jar ./uplink-build.jar
+ENTRYPOINT ["java", "-jar", "uplink-build.jar"]
