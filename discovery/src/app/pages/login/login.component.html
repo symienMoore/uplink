@@ -1,8 +1,8 @@
 <form class="form">
     <h1>Welcome back!</h1>
     <label>Email</label>
-    <input type="text" required="true" [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}">
+    <input type="text" required="true" [(ngModel)]="authForm.email" [ngModelOptions]="{standalone: true}">
     <label>pasword</label>
-    <input type="password" required="true" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}">
-    <app-button class="btn" btnText="login" bgColor="green" txtColor="white" (click)="clickTest()"></app-button>
+    <input type="password" required="true" [(ngModel)]="authForm.password" [ngModelOptions]="{standalone: true}">
+    <app-button class="btn" btnText="login" bgColor="green" txtColor="white" (click)="login()"></app-button>
 </form>

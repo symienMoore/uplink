@@ -30,15 +30,16 @@ class UserController(@Autowired private val userService: UserService) {
                 return ResponseEntity.badRequest().body("invalid password!")
             }
         }
+        //TODO: set up a class to handle this
         val issuer = user?.id.toString()
         val jwt = Jwts.builder()
             .setIssuer(issuer)
-            .setExpiration(Date(System.currentTimeMillis() + 60 * 24 * 1000)) // 1 day
+            .setExpiration(Date(System.currentTimeMillis() + 60 * 24 * 1000))
             .signWith(SignatureAlgorithm.HS512, "secret").compact()
         val cookie = Cookie("jwt", jwt)
         cookie.isHttpOnly = true
         response.addCookie(cookie)
-        return ResponseEntity.ok("Successfully logged in!")
+        return ResponseEntity.ok(cookie)
     }
 
     @PostMapping("/signup")
