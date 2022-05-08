@@ -1,6 +1,13 @@
-$base-color: #245a0a;
+$base-color: #2e4675;
 
 .navbar {
     height: 3rem;
     background: $base-color;
+  h3 {
+    font-family: 'permanent marker';
+    color: yellow;
+    margin: 0;
+    padding: 0;
+  }
 }
+
