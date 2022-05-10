@@ -1,8 +1,19 @@
 <form class="form">
-    <h1>Welcome back!</h1>
-    <label>Email</label>
-    <input type="text" required="true" [(ngModel)]="authForm.email" [ngModelOptions]="{standalone: true}">
-    <label>pasword</label>
-    <input type="password" required="true" [(ngModel)]="authForm.password" [ngModelOptions]="{standalone: true}">
-    <app-button class="btn" btnText="login" bgColor="green" txtColor="white" (click)="login()"></app-button>
+    <!-- <div class="input-container"> -->
+        <h1>Welcome back!</h1>
+        <label>Email</label>
+        <input type="text" required="true" [(ngModel)]="authForm.email" [ngModelOptions]="{standalone: true}">
+        <label>pasword</label>
+        <input type="password" required="true" [(ngModel)]="authForm.password" [ngModelOptions]="{standalone: true}">
+        <div class="cta">
+            <app-button class="btn" btnText="login" bgColor="#ea5b08" txtColor="white" (click)="login()"></app-button>
+            <p class="password-reset">Forgot your password?</p>
+        </div>
+        <p class="sign-in-prompt">
+            New to uplink? <br>
+             <span>sign up.</span>
+        </p>
+    <!-- </div> -->
 </form>
+
+<!-- <p class="password-reset">Forgot your password?</p> -->
