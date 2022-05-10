@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { User } from '../../models/User.model';
+import { AuthService} from "../../services/auth/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -15,12 +16,15 @@ export class LoginComponent implements OnInit {
     password: ''
   }
 
-  constructor() { }
+  constructor(private srv: AuthService) { }
 
   ngOnInit(): void {
   }
 
-  clickTest() {
-    console.log(this.user)
-  }
+  login() {
+    this.srv.doAuthentication(this.authForm).subscribe((data) => {
+      console.warn(data)
+    })
+}
+
 }

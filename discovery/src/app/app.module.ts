@@ -15,6 +15,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChatDisplayComponent } from './components/chat-display/chat-display.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { AuthmodalComponent } from './components/authmodal/authmodal.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,9 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     SearchbarComponent,
     ButtonComponent,
-    ChatDisplayComponent
+    ChatDisplayComponent,
+    SidebarComponent,
+    AuthmodalComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,9 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [
+    CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
