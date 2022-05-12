@@ -11,4 +11,5 @@ interface UserRepository : MongoRepository<User, String> {
     override fun delete(entity: User)
     fun findByUsername(username: String): User?
     fun getUserByEmail(email: String): User?
+    fun getUserById(id: String): User?
 }

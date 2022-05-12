@@ -5,17 +5,14 @@ import com.uplink.enterprise.DTO.RegisterDTO
 import com.uplink.enterprise.models.User
 import com.uplink.enterprise.services.UserService
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.http.HttpStatus
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RestController
-import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.*
 import java.util.*
 import javax.servlet.http.Cookie
 import javax.servlet.http.HttpServletResponse
+import javax.servlet.http.HttpServletRequest
 
 @RestController
 @RequestMapping("/api")
@@ -37,7 +34,9 @@ class UserController(@Autowired private val userService: UserService) {
             .setExpiration(Date(System.currentTimeMillis() + 60 * 24 * 1000))
             .signWith(SignatureAlgorithm.HS512, "secret").compact()
         val cookie = Cookie("jwt", jwt)
-        cookie.isHttpOnly = true
+        cookie.isHttpOnly = false
+//        set in prod
+//        cookie.secure = true
         response.addCookie(cookie)
         return ResponseEntity.ok(cookie)
     }
@@ -52,9 +51,27 @@ class UserController(@Autowired private val userService: UserService) {
             return ResponseEntity.ok(this.userService.createUser(user))
     }
 
-    @RequestMapping("/test")
-    fun runTest(): String {
-        return "may the force be with you"
+    @RequestMapping("/user-profile")
+    fun user(@CookieValue("jwt") jwt: String?, request: HttpServletRequest): ResponseEntity<Any> {
+        println(jwt)
+        println(request.toString())
+       try {
+           if (jwt == null) {
+               return ResponseEntity.status(401).body("unauthenticated!")
+           }
+            val body = Jwts.parser().setSigningKey("secret").parseClaimsJws(jwt).body
+            return ResponseEntity.ok(this.userService.getById(body.issuer.toString()))
+       } catch (e: Exception) {
+           return ResponseEntity.status(401).body("unauthenticated")
+       }
     }
+
+   @PostMapping("logout")
+   fun logout(response: HttpServletResponse): ResponseEntity<Any> {
+       val cookie = Cookie("jwt", "")
+       cookie.maxAge = 0
+       response.addCookie(cookie)
+       return ResponseEntity.ok("success")
+   }
 
 }

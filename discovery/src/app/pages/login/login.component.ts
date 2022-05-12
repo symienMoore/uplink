@@ -9,21 +9,24 @@ import { AuthService} from "../../services/auth/auth.service";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  faCoffee = faCoffee
   user?: User = new User()
   authForm = {
     email: '',
     password: ''
   }
 
+  dataRes: any
   constructor(private srv: AuthService) { }
 
   ngOnInit(): void {
   }
 
   login() {
-    this.srv.doAuthentication(this.authForm).subscribe((data) => {
-      console.warn(data)
+    this.srv.doAuthentication(this.authForm)
+    .subscribe(res => {
+      // console.log(res)
+      this.dataRes = res
+      console.log('this is the response: ' + this.dataRes.value.value)
     })
 }
 

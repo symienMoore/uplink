@@ -2,6 +2,7 @@ package com.uplink.enterprise.models
 
 import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.mapping.DBRef
 import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.core.mapping.Field
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
@@ -37,4 +38,16 @@ class User {
     fun comparePassword(password: String): Boolean {
        return BCryptPasswordEncoder().matches(password, this.password)
     }
+
+//    @DBRef
+//    @Field
+//    var messages: List<Message> = TODO()
+//
+//    @DBRef
+//    @Field
+//    var groups: Set<Group>
+//
+//    @DBRef
+//    @Field
+//    var channels: Set<Channel>
 }
