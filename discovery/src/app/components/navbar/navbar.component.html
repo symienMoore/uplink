@@ -1,8 +1,20 @@
 <div class="navbar ui menu">
-    <h3>Uplink</h3>
+    <h3>
+        <a routerLink="/" [ngStyle]="{'color': '#ea5b08', 'text-decoration': 'none'}">
+            Uplink
+        </a>
+    </h3>
     <div [ngStyle]="{'color': 'white'}" class="icon-display">
-        <fa-icon class="ui icon button" data-content="create account" [icon]="faUser"></fa-icon>
-        <fa-icon [icon]="faRightToBracket"></fa-icon>
+        <a routerLink="/profile" [ngStyle]="{'color': 'white'}">
+            <fa-icon class="ui icon button" 
+            data-content="profile" 
+            [icon]="faUser">
+        </fa-icon>
+        </a>
+        <a routerLink="/login" [ngStyle]="{'color': 'white'}">
+            <fa-icon [icon]="faRightToBracket">
+            </fa-icon>
+        </a>
         <fa-icon [icon]="faGear"></fa-icon>
     </div>
 </div>
