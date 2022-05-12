@@ -24,9 +24,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.srv.doAuthentication(this.authForm)
     .subscribe(res => {
-      // console.log(res)
       this.dataRes = res
-      console.log('this is the response: ' + this.dataRes.value.value)
     })
 }
 

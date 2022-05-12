@@ -7,11 +7,18 @@ $shadow-color: 24262a;
     width: 100%;
     box-shadow: 0px 5px 10px #24262a;
     display: flex;
+    align-items: center;
   h3 {
     font-family: 'permanent marker';
     color: $secondary-color;
-    margin: 0;
+    margin-left: 0.5rem;
     padding: 0;
+  }
+  .icon-display {
+    display: flex;
+    margin-left: 84%;
+    width: 40rem;
+    justify-content: space-evenly;
   }
 }
 
