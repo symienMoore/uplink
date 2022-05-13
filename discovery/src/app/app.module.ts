@@ -19,6 +19,10 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AuthmodalComponent } from './components/authmodal/authmodal.component';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { BrowseComponent } from './pages/browse/browse.component';
+import { ChannelComponent } from './pages/channel/channel.component';
+import { MessageComponent } from './pages/message/message.component';
+import { GroupComponent } from './pages/group/group.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     ButtonComponent,
     ChatDisplayComponent,
     SidebarComponent,
-    AuthmodalComponent
+    AuthmodalComponent,
+    BrowseComponent,
+    ChannelComponent,
+    MessageComponent,
+    GroupComponent
   ],
   imports: [
     BrowserModule,

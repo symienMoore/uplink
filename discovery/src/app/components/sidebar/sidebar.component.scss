@@ -4,4 +4,23 @@ $sidebar-theme: #24262a;
     height: 100vh;
     width: 10rem;
     background: #24262a;
+
+  .categories-container {
+    border-bottom: 1px solid #ea5b08;
+  }
+
+  .category-tab {
+    display: flex;
+    align-items: center;
+    fa-icon {
+      margin-left: 20px;
+      color: #ea5b08;
+    }
+    p {
+      color: white;
+      margin-left: 20px;
+      font-size: 12px;
+    }
+  }
 }
+

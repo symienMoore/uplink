@@ -4,6 +4,7 @@ import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.DBRef
 import org.springframework.data.mongodb.core.mapping.Document
+import org.springframework.data.mongodb.core.mapping.DocumentReference
 import org.springframework.data.mongodb.core.mapping.Field
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
@@ -39,15 +40,18 @@ class User {
        return BCryptPasswordEncoder().matches(password, this.password)
     }
 
-//    @DBRef
-//    @Field
-//    var messages: List<Message> = TODO()
-//
-//    @DBRef
-//    @Field
-//    var groups: Set<Group>
-//
-//    @DBRef
-//    @Field
-//    var channels: Set<Channel>
+   @Field
+   var messages: MutableList<Message> = mutableListOf()
+
+    @DocumentReference
+    @Field
+    var groups: Set<Group> = mutableSetOf()
+
+    @DocumentReference
+    @Field
+    var channels: Set<Channel> = mutableSetOf()
+
+    @DocumentReference
+    @Field
+    var comments: MutableList<Comment> = mutableListOf()
 }

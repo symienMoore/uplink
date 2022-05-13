@@ -1,3 +1,25 @@
 <div class="sidebar-container">
-
+  <div class="categories-container">
+    <div class="category-tab">
+      <fa-icon [icon]="faTv">
+      </fa-icon>
+      <a routerLink="/channels" [ngStyle]="{'color': 'white', 'text-decoration': 'none'}">
+        <p>Channels</p>
+      </a>
+    </div>
+    <div class="category-tab">
+      <fa-icon [icon]="faMessage">
+      </fa-icon>
+      <a routerLink="/messages" [ngStyle]="{'color': 'white', 'text-decoration': 'none'}">
+        <p>Messages</p>
+      </a>
+    </div>
+    <div class="category-tab">
+      <fa-icon [icon]="faPeopleGroup">
+      </fa-icon>
+      <a routerLink="/groups" [ngStyle]="{'color': 'white', 'text-decoration': 'none'}">
+        <p>Groups</p>
+      </a>
+    </div>
+  </div>
 </div>
