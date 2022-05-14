@@ -17,8 +17,7 @@ class Message {
     var messageContent: String = ""
     @Field
     var createdDate: LocalDateTime = LocalDateTime.now()
-
-    @DBRef
+//    @DBRef
     @Field
     var user: String = ""
 }

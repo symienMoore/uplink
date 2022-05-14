@@ -41,7 +41,7 @@ class User {
     }
 
    @Field
-   var messages: MutableList<Message> = mutableListOf()
+   var messages: MutableList<ObjectId> = mutableListOf()
 
     @DocumentReference
     @Field

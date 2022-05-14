@@ -7,7 +7,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class AppComponent {
   title = 'discovery';
-  
+
   userLoggedIn: Boolean = false;
 
   constructor(private cookie: CookieService) {
@@ -20,8 +20,11 @@ export class AppComponent {
   }
 
   doUserCheck() {
-    this.cookie.get('jwt') != '' || this.cookie.get('jwt') != undefined ? 
-    this.userLoggedIn = true : this.userLoggedIn = false
+    if(this.cookie.get('jwt') != '' || this.cookie.get('jwt') != undefined) {
+      this.userLoggedIn = false
+    } else {
+      this.userLoggedIn = true
+    }
   }
 
 }
