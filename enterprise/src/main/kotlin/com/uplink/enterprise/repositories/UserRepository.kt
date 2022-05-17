@@ -12,4 +12,5 @@ interface UserRepository : MongoRepository<User, String> {
     fun findByUsername(username: String): User?
     fun getUserByEmail(email: String): User?
     fun getUserById(id: String): User?
+
 }

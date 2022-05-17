@@ -4,6 +4,7 @@ import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.DBRef
 import org.springframework.data.mongodb.core.mapping.Document
+import org.springframework.data.mongodb.core.mapping.DocumentReference
 import org.springframework.data.mongodb.core.mapping.Field
 import java.time.LocalDateTime
 
@@ -16,7 +17,7 @@ class Comment {
     var commentBody: String = ""
     @Field
     var createdDate: LocalDateTime = LocalDateTime.now()
-    @DBRef
+    @DocumentReference
     @Field
     var user: User = User()
 }

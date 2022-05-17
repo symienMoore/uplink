@@ -39,19 +39,20 @@ class User {
     fun comparePassword(password: String): Boolean {
        return BCryptPasswordEncoder().matches(password, this.password)
     }
-
-   @Field
-   var messages: MutableList<ObjectId> = mutableListOf()
-
-    @DocumentReference
+//
+//    @DocumentReference
     @Field
-    var groups: Set<Group> = mutableSetOf()
-
-    @DocumentReference
-    @Field
-    var channels: Set<Channel> = mutableSetOf()
-
-    @DocumentReference
-    @Field
-    var comments: MutableList<Comment> = mutableListOf()
+   var messages: MutableSet<Message> = mutableSetOf()
+//
+//    @DocumentReference
+//    @Field
+//    var groups: Set<Group> = mutableSetOf()
+//
+//    @DocumentReference
+//    @Field
+//    var channels: Set<Channel> = mutableSetOf()
+//
+//    @DocumentReference
+//    @Field
+//    var comments: MutableList<Comment> = mutableListOf()
 }

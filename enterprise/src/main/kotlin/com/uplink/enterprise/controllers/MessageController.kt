@@ -24,29 +24,23 @@ class MessageController(
 ) {
 
     @RequestMapping("/create-message")
-    fun addMessage(@CookieValue("jwt") jwt: String?,
-                   @RequestBody body: Message): ResponseEntity<Any> {
+    fun addMessage(@CookieValue("jwt") jwt: String?, @RequestBody body: Message): ResponseEntity<Any> {
         var message: Message = Message()
         message.messageContent = body.messageContent
-        println(message)
         try {
             if(jwt == null) {
                 return ResponseEntity.status(401).body("unauthenticated!")
             }
-            println("this is the message: $body")
             val jwtbody = Jwts.parser().setSigningKey("secret").parseClaimsJws(jwt).body.issuer.toString()
             val user: User? = this.userService.getById(jwtbody)
-            message.user = jwtbody
+            user?.messages?.add(message)
+            // adding the user id to user field on message
+            if (user != null) {
+                message.user = user
+            }
             this.messageService.createMessage(message)
-            user?.messages?.add(message.id)
 
-//            if (user != null) {
-//                message.user = user.id
-//            }
-//            val createdMessage: Message = this.messageService.createMessage(message)
-//            user?.messages?.add(createdMessage.id.toString())
-            println(user?.id)
-            return ResponseEntity.ok(user)
+            return ResponseEntity.ok(user?.messages)
         } catch (e: Exception) {
             return ResponseEntity.status(401).body(e.message)
         }
