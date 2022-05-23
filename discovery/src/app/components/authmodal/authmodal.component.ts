@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/User.model';
 import { AuthService} from '../../services/auth/auth.service';
 import { CookieService } from 'ngx-cookie-service'
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-authmodal',
   templateUrl: './authmodal.component.html',
@@ -13,6 +14,7 @@ export class AuthmodalComponent implements OnInit {
     email: '',
     password: ''
   }
+
   constructor(private srv: AuthService, private cookie: CookieService) { }
 
   ngOnInit(): void {
@@ -21,7 +23,6 @@ export class AuthmodalComponent implements OnInit {
   login() {
     this.srv.doAuthentication(this.authForm).subscribe((data) => {
       this.cookie.set('jwt', JSON.stringify(data))
-      console.warn(data)
       this.authForm.email = ""
       this.authForm.password = ""
     })

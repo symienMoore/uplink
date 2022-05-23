@@ -4,10 +4,13 @@ $shadow-color: 24262a;
 
 .navbar {
     height: 3rem;
-    width: 100%;
+    width: 85%;
     box-shadow: 0px 5px 10px #24262a;
     display: flex;
     align-items: center;
+    position: fixed;
+    background: #2f3136;
+    margin-left: 15%;
   h3 {
     font-family: 'permanent marker';
     color: $secondary-color;
